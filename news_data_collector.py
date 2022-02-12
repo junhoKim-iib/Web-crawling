@@ -52,10 +52,11 @@ def save_data(tags):
 
         news_data.append([title,link,content_data,stopwords_token])
     df = pd.DataFrame(news_data,columns=df_headers) 
-
+  
+    df = df.drop_duplicates(["link"])
     df["contents"].replace("",np.nan,inplace=True)
     df = df[df["contents"].notna()]
-    df.drop_duplicates(["link"])
+    
 
     
 
@@ -70,7 +71,7 @@ def save_data(tags):
 
 
 today = datetime.today()
-start_date = today - timedelta(days=100)
+start_date = today - timedelta(days=30)
 
 
 while start_date<=today:

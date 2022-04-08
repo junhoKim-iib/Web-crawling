@@ -9,12 +9,12 @@ import pymysql
 import schedule
 import time
 
-
+# Enter information to connect to the database
 conn = pymysql.connect(
-    user='news_usr',
-    passwd='0607',
+    user='',
+    passwd='',
     host='localhost',
-    db='news_data',
+    db='',
     charset='utf8'
 )
 
